@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playball&display=swap">
+    <title>Test 14th Nov</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(170, 170, 170);
+        }
+
+        #main {
+            height: 30em;
+            width: 45em;
+            border: 2px solid black;
+            border-radius: 20px;
+            box-shadow: 0 0 10px black;
+            background-color: rgb(221, 221, 221);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            color: rgb(153, 105, 3);
+            margin: 50px;
+            letter-spacing: 3px;
+        }
+
+        p {
+            padding: 10px;
+            display: inline;
+            line-height: 1.2em;
+            font-size: 1.2em;
+        }
+
+        .ques {
+            width: 28em;
+            background-color: white;
+            border-radius: 5px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px grey;
+            font-family: 'Great Vibes', cursive;
+            font-family: 'Heebo', sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.2em;
+            text-align: left;
+            padding: 15px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .options:hover {
+            width: 100%;
+            background-color: rgb(167, 166, 166);
+        }
+
+        .options {
+            text-align: left;
+            margin: 5px auto;
+            font: 1.1em sans-serif;
+            width: 29em;
+        }
+
+        span {
+            height: 26px;
+            width: 26px;
+        }
+
+        .collapsible {
+            color: rgb(153, 105, 3);
+            cursor: pointer;
+            text-align: center;
+            background-color: white;
+            width: 25px;
+            height: 25px;
+            float: right;
+            border: none;
+        }
+
+        .active,
+        .collapsible:hover {
+            color: rgb(233, 160, 2);
+        }
+
+        .collapsible:after {
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .contents {
+            padding: 0px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+
+        #disp {
+            border: 2px solid rgb(153, 105, 3);
+            height: 24px;
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="main">
+            <h1>General Questions</h1>
+            <div class="ques">
+                <p>Do You Accept All Major Credit Cards?</p>
+                <button class="collapsible"><span class="material-icons-outlined" id="disp">add</span></button>
+                <div class="contents">
+                    <div class="options">
+                        <input type="radio" name="opt" value="true" />True</br>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="opt" value="false" />False
+                    </div>
+                </div>
+            </div>
+
+            <div class="ques">
+                <p>Do You Support Local Farmers?</p>
+                <button class="collapsible"><span class="material-icons-outlined" id="disp">add</span></button>
+                <div class="contents">
+                    <div class="options">
+                        <input type="radio" name="opt" value="true" />True</br>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="opt" value="false" />False
+                    </div>
+                </div>
+            </div>
+
+            <div class="ques">
+                <p>Do You Use Organic Ingredients?</p>
+                <button class="collapsible"><span class="material-icons-outlined" id="disp">add</span></button>
+                <div class="contents">
+                    <div class="options">
+                        <input type="radio" name="opt" value="true" />True</br>
+                    </div>
+                    <div class="options">
+                        <input type="radio" name="opt" value="false" />False
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
